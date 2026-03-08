@@ -62,7 +62,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
                     <div className={`w-1.5 h-1.5 rounded-full ${isAnswering ? 'bg-accent animate-bounce' : 'bg-gray-600'}`} />
                 </div>
             </div>
-            <div ref={chatContainerRef} className="flex-grow overflow-y-auto mb-4 p-3 bg-primary/40 rounded-xl space-y-4 scroll-smooth border border-border-base/50">
+            <div ref={chatContainerRef} className="flex-grow overflow-y-auto mb-4 p-3 bg-primary/40 rounded-xl space-y-4 scroll-smooth">
                 {chatHistory.map((msg, index) => (
                     <ChatMessage 
                         key={index} 
@@ -73,7 +73,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
                     />
                 ))}
                 {pendingMod && (
-                    <div className="flex flex-col gap-3 p-4 bg-accent/10 border border-accent/40 rounded-xl animate-fade-in shadow-lg">
+                    <div className="flex flex-col gap-3 p-4 bg-accent/10 rounded-xl animate-fade-in shadow-lg">
                         <div className="flex items-center gap-2">
                              <div className="w-2 h-2 rounded-full bg-accent animate-ping" />
                              <p className="text-xs font-bold text-accent uppercase tracking-wider">Confirm Modification</p>
@@ -104,7 +104,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder={isCookingMode ? "Chat disabled in Cooking Mode" : (isContinuousListening ? "Listening..." : "Speak to the assistant...")}
-                    className={`flex-grow p-3 pr-24 bg-primary border border-border-base rounded-lg focus:ring-2 focus:ring-accent focus:outline-none transition-all text-sm text-text-primary ${isCookingMode ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`flex-grow p-3 pr-24 bg-primary rounded-lg focus:ring-2 focus:ring-accent focus:outline-none transition-all text-sm text-text-primary ${isCookingMode ? 'opacity-50 cursor-not-allowed' : ''}`}
                     disabled={isAnswering || !!pendingMod || isCookingMode}
                 />
                 <div className="absolute right-2 flex items-center gap-1">

@@ -5,8 +5,7 @@ import { InstructionSet, ChatMessage, Role } from '../types';
 // Support both platform-standard and Vite-standard environment variables
 const getApiKey = () => {
     const key = process.env.GEMINI_API_KEY || 
-                process.env.API_KEY || 
-                (import.meta.env && import.meta.env.VITE_GEMINI_API_KEY);
+                process.env.API_KEY;
     return key;
 };
 
